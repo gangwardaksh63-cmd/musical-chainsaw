@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daksh Web</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Glowing Title */
+h1, .glow-title {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 3em;
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 30px #fff;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 30px #fff; }
+    100% { text-shadow: 0 0 15px #fff, 0 0 25px #fff, 0 0 40px #fff; }
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+    padding: 12px 20px;
+    border: 2px solid white;
+    border-radius: 50px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 15px #fff, 0 0 25px #fff;
+}
+
+/* Snow Particles */
+.snowflake {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* About Section */
+.about-container {
+    text-align: center;
+    margin: 60px 20px 100px 20px;
+}
+
+.about-container h2 {
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 30px #fff;
+    animation: glow 1.5s infinite alternate;
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    font-size: 1.1em;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+<h1>Daksh Web</h1>
+
+<div class="button-container">
+    <a href="https://youtube.com/@snapcut69" target="_blank" class="button">
+        YouTube
+    </a>
+    <a href="https://discord.gg/bwvSAmxPvx" target="_blank" class="button">
+        Discord
+    </a>
+    <a href="https://open.spotify.com/user/31jfhudpu32rbgnzhm3halbhal4u" target="_blank" class="button"> 
+        Spotify
+    </a>
+    <a href="contact.html" class="button">Contact</a>
+</div>
+
+<div class="about-container">
+    <h2>About Daksh</h2>
+    <p>
+        An great Minecraft funny content creator, great programmer and gfx or vfx artist.<br>
+        He is very intelligent person, he is so handsome, good looking, rich and has a great heart ❤️ (only for girls).<br>
+        He has aesthetic body. Girls can talk to me any time. Gmail: dakshgangwar590@gmail.com.<br>
+        Ty ❤️
+    </p>
+</div>
+
+<!-- Background Music -->
+<audio id="background-music" autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Snow effect
+const snowCount = 120; 
+for (let i = 0; i < snowCount; i++) {
+    let snow = document.createElement("div");
+    snow.className = "snowflake";
+    snow.style.left = Math.random() * window.innerWidth + "px";
+    snow.style.width = snow.style.height = 3 + Math.random() * 5 + "px";
+    snow.style.top = Math.random() * window.innerHeight + "px";
+    document.body.appendChild(snow);
+}
+
+const snowflakes = document.querySelectorAll(".snowflake");
+function animateSnow() {
+    snowflakes.forEach(s => {
+        let top = parseFloat(s.style.top);
+        if (isNaN(top)) top = 0;
+        top += 1 + Math.random() * 2;
+        if (top > window.innerHeight) top = -10;
+        s.style.top = top + "px";
+    });
+    requestAnimationFrame(animateSnow);
+}
+animateSnow();
+</script>
+
+</body>
+</html>
